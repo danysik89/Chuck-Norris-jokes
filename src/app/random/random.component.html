@@ -1,0 +1,20 @@
+<div class="random-jokes">
+    <div class="container">
+      <h3 class="center">Random jokes</h3>
+      <div class="row center">
+        <div class="input-field col s12 m6">
+          <input id="last_name" type="text" class="validate" #inp [value]="i">
+          <label for="last_name">Number of jokes</label>
+          <a class="waves-effect waves-light btn" (click)="refresh(inp.value)">refresh</a>
+        </div>           
+      </div>      
+    
+      <div class="collection">
+        <p class="collection-item"
+          *ngFor="let randJoke of randJokes"
+        >{{joke?.value?.joke}}</p>        
+      </div>
+    
+    </div>
+</div>
+
