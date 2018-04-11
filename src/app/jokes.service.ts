@@ -10,7 +10,13 @@ export class JokesService {
     }
 
     getRandomJokes(id) {
-        return  this.http.get(`http://api.icndb.com/jokes/random/${id}`)
+        return  this.http.get(`http://api.icndb.com/jokes/random/${id}?limitTo=[nerdy,explicit]`)
+        .map(response => {
+            return response.json();
+        })     
+    }
+    getCategories() {
+        return  this.http.get(`http://api.icndb.com/categories`)
         .map(response => {
             return response.json();
         })     

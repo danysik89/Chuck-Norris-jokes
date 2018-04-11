@@ -14,6 +14,7 @@ export class RandomComponent implements OnInit {
   i = 1;
   joke = {};
   randJokes = [1];
+  categories = [];
 
   
 
@@ -35,6 +36,11 @@ export class RandomComponent implements OnInit {
   ngOnInit() {
     this.jokesService.getRandomJokes(1).subscribe(randJokes => {
       this.randJokes = randJokes.value;      
+    });
+    this.jokesService.getCategories().subscribe(categories => {
+      this.categories = categories.value;  
+      console.log(this.categories);
+          
     })
   }
 

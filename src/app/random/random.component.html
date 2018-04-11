@@ -16,13 +16,9 @@
       </div>
 
       <h3>Jokes categories</h3>
-      <label>
+      <label *ngFor="let category of categories">
         <input type="checkbox" class="filled-in" checked="checked" />
-        <span>Filled in</span>
-      </label>
-      <label>
-        <input type="checkbox" class="filled-in" checked="checked" />
-        <span>Filled in</span>
+        <span>{{category}}</span>
       </label>
       <label>
         <input type="checkbox" class="filled-in" checked="checked" />
