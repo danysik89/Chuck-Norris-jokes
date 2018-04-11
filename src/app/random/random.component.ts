@@ -13,7 +13,7 @@ export class RandomComponent implements OnInit {
 
   i = 1;
   joke = {};
-  randJokes = Array(this.i);
+  randJokes = [1];
 
   
 
@@ -26,15 +26,15 @@ export class RandomComponent implements OnInit {
       this.i = +i;
       this.randJokes.length = i;
       console.log(this.randJokes.length);
-      this.jokesService.getRandomJokes().subscribe(randJokes => {
-        this.joke = randJokes;      
+      this.jokesService.getRandomJokes(i).subscribe(randJokes => {
+        this.randJokes = randJokes.value;      
       })
     }    
   }
 
   ngOnInit() {
-    this.jokesService.getRandomJokes().subscribe(randJokes => {
-      this.joke = randJokes;      
+    this.jokesService.getRandomJokes(1).subscribe(randJokes => {
+      this.randJokes = randJokes.value;      
     })
   }
 
