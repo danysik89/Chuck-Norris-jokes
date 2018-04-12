@@ -1,8 +1,9 @@
-<div class="random-jokes">
+<div class="random-jokes center">
     <div class="container">
       <h3 class="">Random jokes</h3>
+      <p class="warn">number of jokes must not exceed 10</p>
       <div class="row center">
-        <div class="input-field col s12 m6">
+        <div class="input-field col s12 m12">
           <input id="last_name" type="text" class="validate" #inp [value]="i">
           <label for="last_name">Number of jokes</label>
           <a class="waves-effect waves-light btn" (click)="refresh(inp.value)">refresh</a>
@@ -11,21 +12,22 @@
     
       <div class="collection">
         <p class="collection-item"
-          *ngFor="let randJoke of randJokes"
+          *ngFor="let randJoke of randJokes"          
         >{{randJoke?.joke}}</p>        
       </div>
+      
 
       <h3>Jokes categories</h3>
-      <label *ngFor="let category of categories">
-        <input type="checkbox" class="filled-in" checked="checked" />
-        <span>{{category}}</span>
+      <p class="warn">select at least one category</p>
+      <label>
+        <input type="checkbox" class="filled-in" (change)="checkExp()" [(ngModel)]="obj.explicit"/>
+        <span>explicit</span>        
       </label>
       <label>
-        <input type="checkbox" class="filled-in" checked="checked" />
-        <span>Select all</span>
+      <input type="checkbox" class="filled-in" (change)="checkNerdy()" [(ngModel)]="obj.nerdy"/>
+        <span>nerdy</span>        
       </label>
-        
-    
-    </div>
+      <!-- {{obj | json}}  -->
+      </div>
 </div>
 

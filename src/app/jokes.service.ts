@@ -5,15 +5,19 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class JokesService {
+
     constructor(private http: Http) {
         
     }
 
-    getRandomJokes(id) {
-        return  this.http.get(`http://api.icndb.com/jokes/random/${id}?limitTo=[nerdy,explicit]`)
+    getRandomJokes(id, category) {
+        console.log(`http://api.icndb.com/jokes/random/${id}?limitTo=[${category}]`);
+        
+        return  this.http.get(`http://api.icndb.com/jokes/random/${id}?limitTo=[${category}]`)
         .map(response => {
             return response.json();
         })     
+
     }
     getCategories() {
         return  this.http.get(`http://api.icndb.com/categories`)
